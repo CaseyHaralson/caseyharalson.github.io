@@ -23,19 +23,23 @@
                 /*margin: 0 1rem;*/
             }
             .searchgroup .background:hover {
-                background: rgba(255, 255, 255, .13);
+                background: rgba(255, 255, 255, .2);
             }
             .searchgroup h4 {
                 margin-top: 1rem;
                 margin-bottom: 1.5rem;
             }
+            .searchgroup h4 span {
+                padding:0 1px;
+                letter-spacing: 1px;
+            }
             .searchgroup .btn {
                 padding-left: 0.6rem;
                 padding-right: 0.6rem;
             }
-            .searchgroup.youtube {
+            /*.searchgroup.youtube {
                 letter-spacing: -2px;
-            }
+            }*/
         </style>
     </head>
     <body id="page-top">
@@ -48,12 +52,7 @@
                     <div class="col-4 searchgroup google">
                         <div class="background">
                             <h4>
-                                <span style="color:#4285F4;">G</span>
-                                <span style="color:#EA4335;">o</span>
-                                <span style="color:#FBBC05;">o</span>
-                                <span style="color:#4285F4;">g</span>
-                                <span style="color:#34A853;">l</span>
-                                <span style="color:#EA4335;">e</span>
+                                <span style="color:#4285F4;">G</span><span style="color:#EA4335;">o</span><span style="color:#FBBC05;">o</span><span style="color:#4285F4;">g</span><span style="color:#34A853;">l</span><span style="color:#EA4335;">e</span>
                             </h4>
                             <form action="https://www.google.com/search" method="get">
                                 <div class="input-group">
@@ -76,8 +75,7 @@
                     <div class="col-4 searchgroup youtube">
                         <div class="background">
                             <h4>
-                                <span style="color:red;">Y</span>
-                                <span style="color:white;">ouTube</span>
+                                <span style="color:red;">Y</span><span style="color:white;">ouTube</span>
                             </h4>
                             <form action="https://www.youtube.com/results" method="get">
                                 <div class="input-group">
@@ -100,9 +98,7 @@
                     <div class="col-4 searchgroup reddit">
                         <div class="background">
                             <h4>
-                                <span style="color:#FF4500;">r</span>
-                                <span style="color:white;">e</span>
-                                <span style="color:#1C1C1C;">ddit</span>
+                                <span style="color:#FF4500;">r</span><span style="color:white;">e</span><span style="color:#1C1C1C;">ddit</span>
                             </h4>
                             <form action="https://www.google.com/search" method="get" data-query-append="+site%3Areddit.com">
                                 <div class="input-group">

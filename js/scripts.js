@@ -30,6 +30,25 @@ window.addEventListener('DOMContentLoaded', event => {
 
 
 
+    var queryAppendForms = document.body.querySelectorAll('.searchgroup form[data-query-append]');
+
+    var queryAppendFormSubmitHandler = function (e) {
+        if (e.preventDefault) e.preventDefault();
+
+        var form = e.target;
+        var action = form.action;
+        var queryAppend = form.dataset.queryAppend;
+        var formData = Object.fromEntries(new FormData(form).entries());
+        var formDataKeys = Object.keys(formData);
+        var query = formDataKeys[0] + '=' + formData[formDataKeys[0]] + queryAppend;
+
+        window.location.href = action + '?' + query;
+    };
+
+    queryAppendForms.forEach(function (item) {
+        item.addEventListener('submit', queryAppendFormSubmitHandler);
+    });
+
 
 
     /*

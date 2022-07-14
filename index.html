@@ -16,13 +16,13 @@
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
         <style>
-            .searchgroup {
+            .searchgroup .background {
                 padding: 1rem 2rem 3rem 2rem;
                 background: rgba(255, 255, 255, .1);
                 transition: background 0.5s;
-                margin: 0 1rem;
+                /*margin: 0 1rem;*/
             }
-            .searchgroup:hover {
+            .searchgroup .background:hover {
                 background: rgba(255, 255, 255, .13);
             }
             .searchgroup h4 {
@@ -44,58 +44,106 @@
                 <div class="row gx-4 gx-lg-5 h-100 align-items-center justify-content-center text-center">
 
 
-                    <div class="col-4 searchgroup google">
-                        <h4>
-                            <span style="color:#4285F4;">G</span>
-                            <span style="color:#EA4335;">o</span>
-                            <span style="color:#FBBC05;">o</span>
-                            <span style="color:#4285F4;">g</span>
-                            <span style="color:#34A853;">l</span>
-                            <span style="color:#EA4335;">e</span>
-                        </h4>
 
-                        <form action="https://www.google.com/search" method="get">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Google search..." aria-label="Google search..." id="googlesearch" name="q">
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="submit">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search-heart" viewBox="0 0 16 16">
-                                            <path d="M6.5 4.482c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.69 0-5.018Z" />
-                                            <path d="M13 6.5a6.471 6.471 0 0 1-1.258 3.844c.04.03.078.062.115.098l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1.007 1.007 0 0 1-.1-.115h.002A6.5 6.5 0 1 1 13 6.5ZM6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11Z" />
-                                        </svg>
-                                    </button>
+                    <div class="col-4 searchgroup google">
+                        <div class="background">
+                            <h4>
+                                <span style="color:#4285F4;">G</span>
+                                <span style="color:#EA4335;">o</span>
+                                <span style="color:#FBBC05;">o</span>
+                                <span style="color:#4285F4;">g</span>
+                                <span style="color:#34A853;">l</span>
+                                <span style="color:#EA4335;">e</span>
+                            </h4>
+                            <form action="https://www.google.com/search" method="get">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Google search..." aria-label="Google search..." id="googlesearch" name="q">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-light" type="submit">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search-heart" viewBox="0 0 16 16">
+                                                <path d="M6.5 4.482c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.69 0-5.018Z" />
+                                                <path d="M13 6.5a6.471 6.471 0 0 1-1.258 3.844c.04.03.078.062.115.098l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1.007 1.007 0 0 1-.1-.115h.002A6.5 6.5 0 1 1 13 6.5ZM6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11Z" />
+                                            </svg>
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
 
 
 
                     <div class="col-4 searchgroup youtube">
-                        <h4>
-                            <span style="color:red;">Y</span>
-                            <span style="color:white;">o</span>
-                            <span style="color:white;">u</span>
-                            <span style="color:white;">T</span>
-                            <span style="color:white;">u</span>
-                            <span style="color:white;">b</span>
-                            <span style="color:white;">e</span>
-                        </h4>
-
-                        <form action="https://www.youtube.com/results" method="get">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="YouTube search..." aria-label="YouTube search..." id="youtubesearch" name="search_query">
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="submit">
-                                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search-heart" viewBox="0 0 16 16">
-                                            <path d="M6.5 4.482c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.69 0-5.018Z" />
-                                            <path d="M13 6.5a6.471 6.471 0 0 1-1.258 3.844c.04.03.078.062.115.098l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1.007 1.007 0 0 1-.1-.115h.002A6.5 6.5 0 1 1 13 6.5ZM6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11Z" />
-                                        </svg>
-                                    </button>
+                        <div class="background">
+                            <h4>
+                                <span style="color:red;">Y</span>
+                                <span style="color:white;">ouTube</span>
+                            </h4>
+                            <form action="https://www.youtube.com/results" method="get">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="YouTube search..." aria-label="YouTube search..." id="youtubesearch" name="search_query">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-light" type="submit">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search-heart" viewBox="0 0 16 16">
+                                                <path d="M6.5 4.482c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.69 0-5.018Z" />
+                                                <path d="M13 6.5a6.471 6.471 0 0 1-1.258 3.844c.04.03.078.062.115.098l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1.007 1.007 0 0 1-.1-.115h.002A6.5 6.5 0 1 1 13 6.5ZM6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11Z" />
+                                            </svg>
+                                        </button>
+                                    </div>
                                 </div>
-                            </div>
-                        </form>
+                            </form>
+                        </div>
                     </div>
+
+
+
+                    <div class="col-4 searchgroup reddit">
+                        <div class="background">
+                            <h4>
+                                <span style="color:#FF4500;">r</span>
+                                <span style="color:white;">e</span>
+                                <span style="color:#1C1C1C;">ddit</span>
+                            </h4>
+                            <form action="https://www.google.com/search" method="get" data-query-append="+site%3Areddit.com">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="reddit search..." aria-label="reddit search..." id="redditsearch" name="q">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-light" type="submit">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search-heart" viewBox="0 0 16 16">
+                                                <path d="M6.5 4.482c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.69 0-5.018Z" />
+                                                <path d="M13 6.5a6.471 6.471 0 0 1-1.258 3.844c.04.03.078.062.115.098l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1.007 1.007 0 0 1-.1-.115h.002A6.5 6.5 0 1 1 13 6.5ZM6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11Z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
+
+
+                    <div class="col-4 searchgroup stackoverflow">
+                        <div class="background">
+                            <h4>
+                                <span style="color:#F48024;">Stack</span>
+                                <span style="color:#222426;font-weight:700;">Overflow</span>
+                            </h4>
+                            <form action="https://www.google.com/search" method="get" data-query-append="+site%3Astackoverflow.com">
+                                <div class="input-group">
+                                    <input type="text" class="form-control" placeholder="Stack Overflow search..." aria-label="Stack Overflow search..." id="stackoverflowsearch" name="q">
+                                    <div class="input-group-append">
+                                        <button class="btn btn-outline-light" type="submit">
+                                            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-search-heart" viewBox="0 0 16 16">
+                                                <path d="M6.5 4.482c1.664-1.673 5.825 1.254 0 5.018-5.825-3.764-1.664-6.69 0-5.018Z" />
+                                                <path d="M13 6.5a6.471 6.471 0 0 1-1.258 3.844c.04.03.078.062.115.098l3.85 3.85a1 1 0 0 1-1.414 1.415l-3.85-3.85a1.007 1.007 0 0 1-.1-.115h.002A6.5 6.5 0 1 1 13 6.5ZM6.5 12a5.5 5.5 0 1 0 0-11 5.5 5.5 0 0 0 0 11Z" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+
 
                 </div>
             </div>

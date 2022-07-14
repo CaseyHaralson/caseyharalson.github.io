@@ -3,7 +3,10 @@ window.addEventListener('DOMContentLoaded', event => {
 
 
     // set the default input to have focus
-    document.body.querySelector('.searchgroup.default input').focus();
+    setTimeout(function () {
+        document.body.querySelector('.searchgroup.default input').focus();
+    }, 100);
+    
 
 
 

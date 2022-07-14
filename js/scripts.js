@@ -9,6 +9,31 @@
 
 window.addEventListener('DOMContentLoaded', event => {
 
+    var searchGroupInputs = document.body.querySelectorAll('.searchgroup input');
+
+    var searchTextInputHandler = function (e) {
+        var inputTarget = e.target;
+        var newValue = inputTarget.value;
+
+        for (var i = 0; i < searchGroupInputs.length; i++) {
+            var item = searchGroupInputs[i];
+            if (inputTarget != item) {
+                item.value = newValue;
+            }
+        }
+    };
+
+    searchGroupInputs.forEach(function (item) {
+        item.addEventListener('input', searchTextInputHandler);
+    });
+        
+
+
+
+
+
+    /*
+
     // Navbar shrink function
     var navbarShrink = function () {
         const navbarCollapsible = document.body.querySelector('#mainNav');
@@ -55,5 +80,7 @@ window.addEventListener('DOMContentLoaded', event => {
     new SimpleLightbox({
         elements: '#portfolio a.portfolio-box'
     });
+
+*/
 
 });

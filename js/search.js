@@ -1,5 +1,95 @@
 
+
+//window.addEventListener('pageshow', event => {
+//    if (event.persisted) {
+//        alert('from back button');
+//    }
+//});
+
+
 window.addEventListener('DOMContentLoaded', event => {
+
+
+    const searchInputs = {
+        "google": {
+            action: "https://www.google.com/search",
+            queryParamName: "q",
+            placeholderText: "Google search..."
+        },
+        "youtube": {
+            action: "https://www.youtube.com/results",
+            queryParamName: "search_query",
+            placeholderText: "YouTube search..."
+        },
+        "reddit": {
+            action: "https://www.google.com/search",
+            queryParamName: "q",
+            placeholderText: "reddit search...",
+            queryAppend: "+site%3Areddit.com"
+        },
+        "stackoverflow": {
+            action: "https://www.google.com/search",
+            queryParamName: "q",
+            placeholderText: "Stack Overflow search...",
+            queryAppend: "+site%3Astackoverflow.com"
+        }
+    };
+
+    const defaultSearchPriority = [
+        { "id": "google", "visible": true },
+        { "id": "youtube", "visible": true },
+        { "id": "reddit", "visible": true },
+        { "id": "stackoverflow", "visible": true }
+    ];
+
+
+
+    // load the different search options
+    var loadSearchGroups = function () {
+        var searchText = '';
+        if (performance.getEntriesByType("navigation")[0].type === 'back_forward') {
+            searchText = localStorage.getItem('search.lastsearchtext');
+        }
+
+        for (var i = 0; i < defaultSearchPriority.length; i++) {
+            var searchGroupDetails = defaultSearchPriority[i];
+            loadSearchGroup(searchGroupDetails, i == 0, searchText);
+        }
+    };
+
+    var loadSearchGroup = function (searchGroupDetails, isDefault, searchText) {
+        var id = searchGroupDetails["id"];
+        var searchGroup = searchInputs[id];
+
+        var template = document.getElementById('searchgroup-template');
+        var newSearchNode = template.content.firstElementChild.cloneNode(true);
+        newSearchNode.classList.add(id);
+        if (isDefault) newSearchNode.classList.add("default");
+
+        var headerTemplate = document.body.querySelector('#searchgroup-header-template');
+        var newHeaderNode = headerTemplate.content.querySelector('div.' + id).cloneNode(true);
+        newSearchNode.querySelector('h4').appendChild(newHeaderNode);
+
+        newSearchNode.querySelector('form').action = searchGroup.action;
+        if ("queryAppend" in searchGroup) newSearchNode.querySelector('form').setAttribute('data-query-append', searchGroup.queryAppend);
+        newSearchNode.querySelector('input').placeholder = searchGroup.placeholderText;
+        newSearchNode.querySelector('input').setAttribute('aria-label', searchGroup.placeholderText);
+        newSearchNode.querySelector('input').id = id + 'searchinput';
+        newSearchNode.querySelector('input').name = searchGroup.queryParamName;
+
+        if (searchText != null && searchText != '') {
+            newSearchNode.querySelector('input').value = searchText;
+        }
+
+
+        document.body.querySelector('#searchgroup-container').appendChild(newSearchNode);
+
+        var test = '';
+    }
+
+    loadSearchGroups();
+
+
 
 
     // set the default input to have focus
@@ -23,6 +113,8 @@ window.addEventListener('DOMContentLoaded', event => {
                 item.value = newValue;
             }
         }
+
+        localStorage.setItem('search.lastsearchtext', newValue);
     };
 
     searchGroupInputs.forEach(function (item) {
@@ -50,6 +142,7 @@ window.addEventListener('DOMContentLoaded', event => {
     queryAppendForms.forEach(function (item) {
         item.addEventListener('submit', queryAppendFormSubmitHandler);
     });
+
 
 
 });

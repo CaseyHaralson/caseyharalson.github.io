@@ -106,7 +106,6 @@ window.addEventListener('DOMContentLoaded', event => {
         var template = document.getElementById('searchgroup-template');
         var newSearchNode = template.content.firstElementChild.cloneNode(true);
         newSearchNode.classList.add(id);
-        if (isDefault) newSearchNode.classList.add("default");
 
         var headerTemplate = document.body.querySelector('#searchgroup-header-template');
         var newHeaderNode = headerTemplate.content.querySelector('div.' + id).cloneNode(true);
@@ -114,6 +113,7 @@ window.addEventListener('DOMContentLoaded', event => {
 
         newSearchNode.querySelector('form').action = searchGroup.action;
         if ("queryAppend" in searchGroup) newSearchNode.querySelector('form').setAttribute('data-query-append', searchGroup.queryAppend);
+        if (isDefault) newSearchNode.querySelector('input').setAttribute('autofocus', 'true');
         newSearchNode.querySelector('input').placeholder = searchGroup.placeholderText;
         newSearchNode.querySelector('input').setAttribute('aria-label', searchGroup.placeholderText);
         newSearchNode.querySelector('input').id = id + 'searchinput';
@@ -155,14 +155,6 @@ window.addEventListener('DOMContentLoaded', event => {
         document.body.querySelector('table#editoptionstable tbody').innerHTML = '';
     }
     loadEditGrid();
-
-
-
-
-    // set the default input to have focus
-    setTimeout(function () {
-        document.body.querySelector('.searchgroup.default input').focus();
-    }, 100);
     
 
 

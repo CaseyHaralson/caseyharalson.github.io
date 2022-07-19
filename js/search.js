@@ -116,7 +116,7 @@ window.addEventListener('DOMContentLoaded', event => {
         if (isDefault) newSearchNode.querySelector('input').setAttribute('autofocus', 'true');
         newSearchNode.querySelector('input').placeholder = searchGroup.placeholderText;
         newSearchNode.querySelector('input').setAttribute('aria-label', searchGroup.placeholderText);
-        newSearchNode.querySelector('input').id = id + 'searchinput';
+        //newSearchNode.querySelector('input').id = id + 'searchinput';
         newSearchNode.querySelector('input').name = searchGroup.queryParamName;
 
         if (searchText != null && searchText != '') {
@@ -277,4 +277,41 @@ window.addEventListener('DOMContentLoaded', event => {
                 location.reload();
             }, 700);
         });
+
+
+
+
+
+    // load basic search data
+    const url = 'https://caseyharalson.github.io/assets/data/top5000words.txt';
+    fetch(url)
+        .then(r => r.text())
+        .then(t => {
+            var lines = t.split(/\r/);
+            lines.forEach(e => {
+                var option = document.createElement('option');
+                option.value = e;
+                option.innerHTML = e;
+                document.body.querySelector('#test-datalist').appendChild(option);
+            });
+            
+        });
+
+    monitorEvents(searchGroupInputs[0]);
+
+   
+    searchGroupInputs.forEach(function (item) {
+        item.addEventListener('search', event => {
+            var test = '';
+        });
+        item.addEventListener('change', event => {
+            var test = '';
+        });
+        item.addEventListener('keyup', event => {
+            if (event.keyCode == 9) {
+var test = '';
+            }
+            
+        });
+    });
 });

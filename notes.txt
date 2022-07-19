@@ -1,0 +1,10 @@
+word frequency data:
+https://www.wordfrequency.info/samples.asp
+
+common misspellings:
+https://en.wikipedia.org/wiki/Commonly_misspelled_English_words
+https://www.englishclub.com/spelling/misspellings.htm
+
+bootstrap typeahead alternative:
+https://github.com/twitter/typeahead.js/issues/1793
+

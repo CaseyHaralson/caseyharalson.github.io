@@ -28,14 +28,14 @@ window.addEventListener('DOMContentLoaded', event => {
             action: "https://www.google.com/search",
             queryParamName: "q",
             placeholderText: "reddit search...",
-            queryAppend: "+site%3Areddit.com"
+            queryPrepend: "site%3Areddit.com+"
         },
         "stackoverflow": {
             name: "Stack Overflow",
             action: "https://www.google.com/search",
             queryParamName: "q",
             placeholderText: "Stack Overflow search...",
-            queryAppend: "+site%3Astackoverflow.com"
+            queryPrepend: "site%3Astackoverflow.com+"
         }
     };
 
@@ -112,7 +112,7 @@ window.addEventListener('DOMContentLoaded', event => {
         newSearchNode.querySelector('h4').appendChild(newHeaderNode);
 
         newSearchNode.querySelector('form').action = searchGroup.action;
-        if ("queryAppend" in searchGroup) newSearchNode.querySelector('form').setAttribute('data-query-append', searchGroup.queryAppend);
+        if ("queryPrepend" in searchGroup) newSearchNode.querySelector('form').setAttribute('data-query-prepend', searchGroup.queryPrepend);
         if (isDefault) newSearchNode.querySelector('input').setAttribute('autofocus', 'true');
         newSearchNode.querySelector('input').placeholder = searchGroup.placeholderText;
         newSearchNode.querySelector('input').setAttribute('aria-label', searchGroup.placeholderText);
@@ -182,21 +182,21 @@ window.addEventListener('DOMContentLoaded', event => {
 
 
     // handle forms that have additional data that needs appended to the query
-    var queryAppendForms = document.body.querySelectorAll('.searchgroup form[data-query-append]');
-    var queryAppendFormSubmitHandler = function (e) {
+    var queryPrependForms = document.body.querySelectorAll('.searchgroup form[data-query-prepend]');
+    var queryPrependFormSubmitHandler = function (e) {
         if (e.preventDefault) e.preventDefault();
 
         var form = e.target;
         var action = form.action;
-        var queryAppend = form.dataset.queryAppend;
+        var queryPrepend = form.dataset.queryPrepend;
         var formData = Object.fromEntries(new FormData(form).entries());
         var formDataKeys = Object.keys(formData);
-        var query = formDataKeys[0] + '=' + formData[formDataKeys[0]] + queryAppend;
+        var query = formDataKeys[0] + '=' + queryPrepend + encodeURIComponent(formData[formDataKeys[0]]);
 
         window.location.href = action + '?' + query;
     };
-    queryAppendForms.forEach(function (item) {
-        item.addEventListener('submit', queryAppendFormSubmitHandler);
+    queryPrependForms.forEach(function (item) {
+        item.addEventListener('submit', queryPrependFormSubmitHandler);
     });
 
 
